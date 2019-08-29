@@ -1,17 +1,7 @@
-FROM ubuntu:16.04
+FROM vanessa/pytorch-dev:py2
 
 RUN apt-get update && apt-get -y install \
   git
-
-# Point Cloud
-# https://github.com/strawlab/python-pcl
-RUN apt-get -y install \
-  python2-pip
-
-RUN pip install numpy
-RUN pip install scipy
-RUN pip install tensorboardX
-RUN pip install torch
 
 WORKDIR /opt
 RUN git clone --depth 1 https://github.com/ustasb/pointcleannet.git && \
